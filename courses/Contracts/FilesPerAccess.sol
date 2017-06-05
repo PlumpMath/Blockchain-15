@@ -26,7 +26,7 @@ contract FilesPerAccess{
         return repoStorage[msg.sender].fileName;
     }
 
-    function getFile() constant returns(bytes){
+    function getFile() public returns(bytes){
         if(repoStorage[msg.sender].downloads > 0){
             repoStorage[msg.sender].downloads -= 1;
             GetDocument(msg.sender, repoStorage[msg.sender].file);
